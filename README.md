@@ -73,12 +73,12 @@ A natural language processing project fine-tuning DistilBERT on HuffPost news he
 - Short headline text presents inherent ambiguity — performance ceiling is constrained by label overlap across categories
  
 ---
-
+ 
 ## NHTSA Vehicle Complaints — Azure Cloud Pipeline & Power BI Dashboard <a name="nhtsa-powerbi"></a>
-
+ 
 #### Overview
 An end-to-end cloud data engineering and business intelligence project using NHTSA's public vehicle complaints dataset — a real-world record of consumer-reported automobile issues collected via web and phone. The pipeline spans ingestion, transformation, distributed storage, serverless querying, and interactive visualization across the full Microsoft Azure stack.
-
+ 
 #### Technical Details
 - **Data Source**: NHTSA Complaints Dataset (public record of vehicle complaints across U.S. manufacturers)
 - **Cloud Services**: Azure Data Factory (ADF), Azure Data Lake Storage Gen2, Azure Synapse Analytics (Serverless SQL Pool), Azure CosmosDB, Microsoft Power BI
@@ -93,18 +93,21 @@ An end-to-end cloud data engineering and business intelligence project using NHT
   - Imported NHTSA Synapse external table and NHTSA Ford-specific safety ratings CSV (`Safercar_data_FORD.csv`)
   - Engineered a composite key (`YEAR_MODEL_ID = YEARTXT & "_" & MODELTXT`) to establish a many-to-one relationship between datasets in Model View
   - Built an interactive dashboard with bar/line charts, a data table, and dynamic slicers — all visuals cross-filter on selection
-
+ 
 #### Key Features
 - Full ELT pipeline (Extract → Load → Transform) rather than traditional ETL, reflecting modern cloud data architecture patterns
 - Parquet partitioning by manufacturer enables efficient predicate pushdown in distributed queries (simulating production-scale data lake design)
 - Cross-dataset joins in Power BI link complaint volume data with safety ratings for richer vehicle-level analysis
 - Dashboard slicers allow filtering by model year, vehicle model, and crash indicator dynamically across all visuals
-
+ 
 #### Tools & Technologies
 Azure Data Factory · Azure Data Lake Storage Gen2 · Azure Synapse Analytics · Azure CosmosDB · Microsoft Power BI · SQL · Python · Parquet
-
+ 
+[![NHTSA Power BI Dashboard](./nhtsa_dashboard.png)](https://app.powerbi.com/view?r=eyJrIjoiMzA3MmZhYzYtYzY0Yy00ZDEyLWI0OGYtMzc0MzEwNjlmYWRkIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9)
+ 
+[View Interactive Dashboard →](https://app.powerbi.com/view?r=eyJrIjoiMzA3MmZhYzYtYzY0Yy00ZDEyLWI0OGYtMzc0MzEwNjlmYWRkIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9)
+ 
 ---
-
 ## [AlgoViz — Sorting Algorithm Visualizer](https://github.com/amufti12/AlgoViz) <a name="algoviz"></a>
 
 #### Overview
@@ -151,7 +154,7 @@ cmake --build .
 
 ## [Spotify Song Prediction](https://github.com/amufti12/song_prediction) <a name="song-prediction"></a>
  
-*Published research conducted at Kennesaw State University (2021), co-authored with Raleigh Barden and Matthew Bowers.*
+*Research project conducted at Kennesaw State University (2021), co-authored with Raleigh Barden and Matthew Bowers.*
  
 #### Overview
 A two-stage deep learning system for automatic playlist continuation, built on the Spotify Million Playlist Dataset. Given a seed playlist and its initial tracks, the model predicts the audio feature vector of the next song and retrieves the closest matching tracks from a corpus of 2M+ songs — framing recommendation as a regression problem rather than a classification one.
@@ -184,16 +187,35 @@ A two-stage deep learning system for automatic playlist continuation, built on t
 - Primary bottleneck was compute: full-dataset RNN training and the absence of Spotify-provided validation data (metrics required a formal challenge submission)
  
 ---
-
+ 
 ## [Video-to-Video Synthesis with Semantically Segmented Video](https://github.com/amufti12/Video-To-Video-Synthesis-C-Day-2021-Materials) <a name="vid2vid"></a>
-
-*C-Day 2021 Research Presentation*
-
-#### Abstract
-This project studies the use of generative adversarial networks (GANs) to translate semantically segmented video masks into photo-realistic video — a task known as video-to-video synthesis. A conditional GAN architecture (derived from pix2pix) learns a mapping from semantic labels to realistic imagery. The model synthesizes translated video that replicates low-frequency scene details from the source, with adjacent frames maintaining rough coherence despite the absence of temporal context across frames. This study demonstrates how simplistic conditional GANs can perform surprisingly well at video-to-image translation tasks.
-
-**Index Terms**: Machine Vision · Conditional GAN · Generative Adversarial Networks · pix2pix · Semantic Segmentation · vid2vid · Video-to-Video · Image-to-Image
-
+ 
+*KSU C-Day 2021 undergraduate research presentation, co-authored with Jordan Hasty. Advised by Dr. Mohammed Aledhari.*
+ 
+#### Overview
+A computer vision research project exploring whether a simple conditional GAN can translate semantically segmented video into photo-realistic imagery — with direct applications to autonomous vehicle perception and generative video synthesis. The core research questions: how do you generate photo-realistic video from a semantically labeled source, and how do you maintain temporal coherence across frames?
+ 
+#### Technical Details
+- **Architecture**: Conditional GAN based on the pix2pix framework, implemented in Keras (TensorFlow)
+- **Dataset**: Cityscapes — urban street scene images paired with semantic label masks, scaled to 256×256
+- **Data Preparation**: Semantic mask and source image pairs concatenated into a single 512×256 image for paired training
+- **Training**: 10 epochs on random (non-sequential) samples — no ordered frame sequences were available in the dataset, which directly contributed to temporal flickering in output video
+- **Tools**: Python, Keras, TensorFlow
+ 
+#### Results
+- After 10 epochs, the generator successfully maps semantic labels to visually coherent regions with well-defined edges and correct style per label class
+- Low-frequency detail (shapes, edges, scene layout) is faithfully reconstructed
+- High-frequency detail (texture, fine surface structure) is not well-represented — the 256×256 training resolution is a likely contributing factor
+- Output video maintains rough scene consistency across frames despite flickering, since similar semantic maps produce similar synthesized images
+ 
+#### Limitations & Experiments
+- Adjusting the L1 loss weight to reduce blur introduced visual artifacts rather than improving sharpness
+- Increasing the discriminator learning rate to accelerate its training did not yield better generation quality
+- Temporal flickering stems from the model having no information about prior frames — a fundamental constraint of training on unordered samples
+- A dataset of sequentially ordered image pairs with corresponding semantic masks would likely resolve the coherence issue
+ 
+**Index Terms**: Conditional GAN · pix2pix · Semantic Segmentation · Video-to-Video Synthesis · Image Translation · Cityscapes · Autonomous Vehicles
+ 
 ---
 
 *This portfolio is a living document. More projects are added as they're completed.*
