@@ -102,8 +102,8 @@ An end-to-end cloud data engineering and business intelligence project using NHT
  
 #### Tools & Technologies
 Azure Data Factory · Azure Data Lake Storage Gen2 · Azure Synapse Analytics · Azure CosmosDB · Microsoft Power BI · SQL · Python · Parquet
- 
-[![NHTSA Power BI Dashboard](./nhtsa_dashboard.png)](https://app.powerbi.com/view?r=eyJrIjoiMzA3MmZhYzYtYzY0Yy00ZDEyLWI0OGYtMzc0MzEwNjlmYWRkIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9)
+
+![NHTSA Power BI Dashboard](https://github.com/user-attachments/assets/bb8af551-b3fd-4803-9126-59623c587025)
  
 [View Interactive Dashboard →](https://app.powerbi.com/view?r=eyJrIjoiMzA3MmZhYzYtYzY0Yy00ZDEyLWI0OGYtMzc0MzEwNjlmYWRkIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9)
  
@@ -120,15 +120,7 @@ A real-time interactive visualizer for classic sorting algorithms, built in C++ 
 - **Algorithms Implemented**: Selection Sort, Bubble Sort, Insertion Sort, Merge Sort, Quick Sort
 - **Planned**: Additional sorting algorithms, graph traversal visualizations (BFS/DFS, Dijkstra's)
 
-#### How to Build and Run
-```bash
-git clone https://github.com/amufti12/AlgoViz
-cd AlgoViz
-mkdir build && cd build
-cmake -G "YOUR_GENERATOR" ..
-cmake --build .
-# Run the executable from the build directory
-```
+![algovizmp4](https://github.com/user-attachments/assets/eac11269-0af2-454d-9fbc-3362aeec957c)
 
 ---
 
@@ -142,14 +134,8 @@ A C++ simulation of the gravitational N-Body Problem — a dynamical system of p
 - **Physics**: Numerical integration of gravitational forces across N particles
 - **Libraries**: Eigen (linear algebra), ImGui (UI), ImPlot (real-time plotting), GLFW (windowing)
 
-#### How to Build and Run
-```bash
-cd <project root directory>
-mkdir build
-cd build
-cmake -G "YOUR_GENERATOR" ..
-cmake --build .
-# Copy imgui.ini from the root directory into the executable directory, then run
+![nbodysimvideo](https://github.com/user-attachments/assets/1263864f-a4e3-45f0-8db7-563a5a7bfefc)
+
 ```
 
 ## [Spotify Song Prediction](https://github.com/amufti12/song_prediction) <a name="song-prediction"></a>
