@@ -4,7 +4,7 @@ Hi! I'm Aydan, a data scientist and software engineer with a Master's in Data Sc
 
 Currently working as a Quality Assurance Engineer at Carrier Global Corporation, where I build PowerBI dashboards and automate testing processes. Actively seeking Data Scientist roles.
 
-aydanmufti@gmail.com &nbsp;|&nbsp; [github.com/amufti12](https://github.com/amufti12)
+aydanmufti@gmail.com &nbsp;&nbsp; [github.com/amufti12](https://github.com/amufti12)
 
 ---
 
