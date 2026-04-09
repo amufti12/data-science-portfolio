@@ -136,7 +136,7 @@ A C++ simulation of the gravitational N-Body Problem — a dynamical system of p
 
 ![nbodysimvideo](https://github.com/user-attachments/assets/1263864f-a4e3-45f0-8db7-563a5a7bfefc)
 
-```
+---
 
 ## [Spotify Song Prediction](https://github.com/amufti12/song_prediction) <a name="song-prediction"></a>
  
