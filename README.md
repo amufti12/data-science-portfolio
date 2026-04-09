@@ -108,6 +108,7 @@ Azure Data Factory · Azure Data Lake Storage Gen2 · Azure Synapse Analytics ·
 [View Interactive Dashboard →](https://app.powerbi.com/view?r=eyJrIjoiMzA3MmZhYzYtYzY0Yy00ZDEyLWI0OGYtMzc0MzEwNjlmYWRkIiwidCI6ImQ1N2QzMmNjLWMxMjEtNDg4Zi1iMDdiLWRmZTcwNTY4MGM3MSIsImMiOjN9)
  
 ---
+
 ## [AlgoViz — Sorting Algorithm Visualizer](https://github.com/amufti12/AlgoViz) <a name="algoviz"></a>
 
 #### Overview
@@ -139,7 +140,7 @@ A C++ simulation of the gravitational N-Body Problem — a dynamical system of p
 ---
 
 ## [Spotify Song Prediction](https://github.com/amufti12/song_prediction) <a name="song-prediction"></a>
- 
+
 *Research project conducted at Kennesaw State University (2021), co-authored with Raleigh Barden and Matthew Bowers.*
  
 #### Overview
