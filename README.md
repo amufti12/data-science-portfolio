@@ -1,10 +1,10 @@
-# Aydan Mufti — Data Science & Engineering Portfolio
+# Aydan Mufti - Data Science & Engineering Portfolio
 
 Hi! I'm Aydan, a data scientist and software engineer with a Master's in Data Science from Boston University (4.0 GPA) and a background in Computer Science from Kennesaw State University. My work spans machine learning, systems programming, and full-stack data pipelines. I'm passionate about building things that are both rigorous and useful — from predictive safety systems for the NFL to real-time sorting algorithm visualizers.
 
 Currently working as a Quality Assurance Engineer at Carrier Global Corporation, where I build PowerBI dashboards and automate testing processes. Actively seeking Data Scientist roles.
 
-aydanmufti@gmail.com &nbsp;&nbsp; [github.com/amufti12](https://github.com/amufti12)
+aydanmufti@gmail.com &nbsp;|&nbsp; [github.com/amufti12](https://github.com/amufti12)
 
 ---
 
@@ -12,8 +12,8 @@ aydanmufti@gmail.com &nbsp;&nbsp; [github.com/amufti12](https://github.com/amuft
 
 1. [NFL Injury Prediction and Risk Analysis System](#nfl-injury-prediction)
 2. [HuffPost News Classification (DistilBERT)](#huffpost-classification)
-3. [NHTSA Vehicle Complaints — Azure Cloud Pipeline & Power BI Dashboard](#nhtsa-powerbi)
-4. [AlgoViz — Sorting Algorithm Visualizer](#algoviz)
+3. [NHTSA Vehicle Complaints - Azure Cloud Pipeline & Power BI Dashboard](#nhtsa-powerbi)
+4. [AlgoViz - Sorting Algorithm Visualizer](#algoviz)
 5. [N-Body Gravitational Simulator](#nbody-simulator)
 6. [Spotify Song Prediction](#song-prediction)
 7. [Video-to-Video Synthesis (C-Day 2021)](#vid2vid)
