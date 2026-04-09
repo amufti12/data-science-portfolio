@@ -149,22 +149,40 @@ cmake --build .
 # Copy imgui.ini from the root directory into the executable directory, then run
 ```
 
----
-
 ## [Spotify Song Prediction](https://github.com/amufti12/song_prediction) <a name="song-prediction"></a>
-
+ 
+*Published research conducted at Kennesaw State University (2021), co-authored with Raleigh Barden and Matthew Bowers.*
+ 
 #### Overview
-A song recommendation algorithm built for the Spotify Million Playlist Dataset Challenge — given a seed playlist title and/or initial tracks, predict the subsequent tracks a user would add.
-
+A two-stage deep learning system for automatic playlist continuation, built on the Spotify Million Playlist Dataset. Given a seed playlist and its initial tracks, the model predicts the audio feature vector of the next song and retrieves the closest matching tracks from a corpus of 2M+ songs — framing recommendation as a regression problem rather than a classification one.
+ 
+#### Architecture
+**Stage 1 — Audio Feature Prediction (RNN)**
+- Input: sequence of track audio feature vectors (all but last song in a playlist)
+- Target: audio feature vector of the final track
+- Model: Bidirectional LSTM → Bidirectional GRU → Dropout → Bidirectional SimpleRNN → Dropout → Dense(13)
+- Masking layer removes padding bias from variable-length sequences
+- Optimizer: Adam; metrics: MSE, RMSE, MAE
+- Trained on 20,000 playlists (< 1% of full dataset) as a proof of concept; full dataset training ran ~24 hours/epoch
+ 
+**Stage 2 — Nearest Neighbor Retrieval (KNN)**
+- Input: predicted audio feature vector from Stage 1
+- KNN trained on the full 2M+ track dataset; k=500 (per Spotify Challenge spec)
+- Model serialized to `.pkl` to avoid retraining per playlist
+- Returns the 500 nearest neighbors by Euclidean distance in audio feature space
+ 
 #### Technical Details
 - **Dataset**: Spotify Million Playlist Dataset (1M playlists, 2M+ unique tracks, ~300K artists; 2010–2017)
-- **Task**: Automatic playlist continuation (open-ended challenge on AIcrowd)
-- **Approach**: Collaborative filtering and sequence-based recommendation modeling
+- **Data Pipeline**: Spotify API batched in chunks of 100 URIs with rate-limit error handling; all audio features cached to `.pkl`; playlists transformed into (sequence, target) pairs and padded for RNN ingestion
+- **Baseline Considered**: Random Forest on average playlist feature vector — abandoned in favor of RNN after observing the lossy nature of averaging and stronger RNN learning curves
+- **Tools**: Python (TensorFlow/Keras, scikit-learn, Spotipy, pandas, NumPy)
 - **Note**: The dataset is no longer publicly downloadable — contact Spotify Research directly for access
-
-#### Background
-Playlists represent 54% of consumer listening habits (Digital Music Alliance, 2018 Annual Music Report). By learning playlist structure — genre, mood, occasion, intent — recommendation systems can surface music that fits not just a user's taste, but a specific listening context. This challenge explores what makes songs "go together."
-
+ 
+#### Key Findings
+- The RNN showed clear learning curves across 100 epochs on the sample dataset, with faster error reduction on the full dataset — establishing a strong proof of concept for the architecture
+- Framing next-song prediction as regression over audio features (rather than classification over track IDs) allows the model to generalize to songs not seen in training
+- Primary bottleneck was compute: full-dataset RNN training and the absence of Spotify-provided validation data (metrics required a formal challenge submission)
+ 
 ---
 
 ## [Video-to-Video Synthesis with Semantically Segmented Video](https://github.com/amufti12/Video-To-Video-Synthesis-C-Day-2021-Materials) <a name="vid2vid"></a>
